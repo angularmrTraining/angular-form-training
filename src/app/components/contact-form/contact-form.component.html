@@ -1,0 +1,55 @@
+<div class="row">
+  <div class="col-sm-8 col-md-12">
+    {{diagnostic}}
+    <div class="card" [hidden]="submitted">
+      <div class="card-header">
+        Create a New Contact
+      </div>
+      <div class="card-body">
+        <form #contactForm="ngForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <div class="row">
+              <div class="col">
+                <label for="">First Name</label>
+                <input type="text" class="form-control" id="firstName" required [(ngModel)]="model.firstName" name="firstName" #firstName="ngModel">
+                <div [hidden]="firstName.valid || firstName.pristine" class="alet alert-damger">
+                  First name is required!!
+                </div>
+              </div>
+              <div class="col">
+                <label for="">Middle Name</label>
+                <input type="text" class="form-control" id="lastName" [(ngModel)]="model.muddleName" name="middleName">
+              </div>
+              <div class="col">
+                <label for="">Last Name</label>
+                <input type="text" class="form-control" id="middleName" required [(ngModel)]="model.lastNane" name="lastName" #lastName="ngModel">
+                <div [hidden]="lastName.valid || lastName.pristine" class="alet alert-damger">
+                  Last name is required!!
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Role -->
+          <div class="form-group">
+            <label for="">User Role</label>
+            <select name="" id="role" class="form-control" required name="role" [(ngModel)]="model.role">
+              <option *ngFor="let role of roles" [value]="role">{{role}}</option>
+            </select>
+          </div>
+          <!-- /Role -->
+        </form>
+      </div>
+
+      <!-- Card Footer -->
+      <div class="card-footer">
+        <button class="btn btn-warning" (click)="newContact(); contactForm.reset()">
+          New Contact
+        </button>
+        <button class="btn btn-success" [disabled]="!contactForm.form.valid" (click)="onSubmit()">
+          Submit
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
