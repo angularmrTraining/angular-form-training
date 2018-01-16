@@ -31,7 +31,9 @@
                 </div>
               </div>
             </div>
-          </div>
+          <!-- adress -->
+            <app-adress [adress]="model.adress"></app-adress>
+          <!-- adress -->
 
           <!-- Role -->
           <div class="form-group">
@@ -40,6 +42,8 @@
               <option *ngFor="let role of roles" [value]="role">{{role}}</option>
             </select>
           </div>
+        </div>
+
           <!-- /Role -->
         </form>
       </div>

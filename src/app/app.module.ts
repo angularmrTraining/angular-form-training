@@ -7,6 +7,8 @@ import { ContactFormComponent } from './components/contact-form/contact-form.com
 import { HeaderComponent } from './components/blocks/header/header.component';
 import { ToDosComponent } from './components/blocks/to-dos/to-dos.component';
 import { DocComponent } from './components/blocks/doc/doc.component';
+import { AdressComponent } from './components/adress/adress.component';
+import { ContactService } from './services/contact.service';
 
 
 @NgModule({
@@ -15,13 +17,14 @@ import { DocComponent } from './components/blocks/doc/doc.component';
     ContactFormComponent,
     HeaderComponent,
     ToDosComponent,
-    DocComponent
+    DocComponent,
+    AdressComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule
   ],
-  providers: [],
+  providers: [ ContactService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

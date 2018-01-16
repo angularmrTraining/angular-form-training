@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Contact } from '../../contact';
+import { Adress } from '../../adress';
 
 @Component({
   selector: 'app-contact-form',
@@ -10,7 +11,7 @@ import { Contact } from '../../contact';
 export class ContactFormComponent implements OnInit {
 
   roles = ['Internal User', 'Admin', 'Customer'];
-  model = new Contact('Mohammed', '', 'Internal User');
+  model = new Contact('Mohammed', '', 'Internal User', new Adress());
 
   submitted: boolean = false;
 
@@ -28,7 +29,7 @@ export class ContactFormComponent implements OnInit {
   }
 
   newContact() {
-    this.model = new Contact('', '', '');
+    this.model = new Contact('', '', '', new Adress());
   }
 
 }
