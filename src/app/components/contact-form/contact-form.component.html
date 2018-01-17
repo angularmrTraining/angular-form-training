@@ -10,29 +10,57 @@
       </div>
       <div class="card-body">
         <form #contactForm="ngForm" (ngSubmit)="onSubmit()">
+          <!-- FirstName, LastName and MiddleName -->
           <div class="form-group">
             <div class="row">
               <div class="col">
                 <label for="">First Name</label>
                 <input type="text" class="form-control" id="firstName" required [(ngModel)]="model.firstName" name="firstName" #firstName="ngModel">
-                <div [hidden]="firstName.valid || firstName.pristine" class="alet alert-damger">
+                <div [hidden]="firstName.valid || firstName.pristine" class="alet alert-danger">
                   First name is required!!
                 </div>
               </div>
               <div class="col">
                 <label for="">Middle Name</label>
-                <input type="text" class="form-control" id="lastName" [(ngModel)]="model.muddleName" name="middleName">
+                <input type="text" class="form-control" id="middleName" [(ngModel)]="model.middleName" name="middleName">
               </div>
               <div class="col">
                 <label for="">Last Name</label>
-                <input type="text" class="form-control" id="middleName" required [(ngModel)]="model.lastNane" name="lastName" #lastName="ngModel">
-                <div [hidden]="lastName.valid || lastName.pristine" class="alet alert-damger">
+                <input type="text" class="form-control" id="lastName" required [(ngModel)]="model.lastName" name="lastName" #lastName="ngModel">
+                <div [hidden]="lastName.valid || lastName.pristine" class="alet alert-danger">
                   Last name is required!!
                 </div>
               </div>
             </div>
           </div>
-
+          <div class="form-groupe">
+            <div class="row">
+              <div class="col">
+                <label for="">Email</label>
+                <input type="email" class="form-control" id="email" required email [(ngModel)]="model.email" name="email" #email="ngModel">
+                <div [hidden]="email.valid || email.pristine" class="alet alert-danger">
+                  Must be a valid Email
+                </div>
+              </div>
+              <div class="col">
+                <label for="">Phone</label>
+                <input type="text" class="form-control" id="phone" required [(ngModel)]="model.phone" name="phone" #phone="ngModel">
+                <div [hidden]="phone.valid || phone.pristine" class="alet alert-danger">
+                  Phone number is required!!
+                </div>
+              </div>
+              <div class="col">
+                <label for="">Gender</label>
+                <select name="" id="gender" class="form-control" required name="gender" [(ngModel)]="model.gender">
+                  <option *ngFor="let gender of genders" [value]="gender">{{gender}}</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <!-- /FirstName, LastName and MiddleName -->
+          <div class="form-group">
+            <app-contact-address [address]="model.address"></app-contact-address>
+          </div>
           <!-- Role -->
           <div class="form-group">
             <label for="">User Role</label>
