@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Contact } from '../../contact';
+import { Address } from '../../address';
+import { ContactService } from '../../services/contact.service';
 
 @Component({
   selector: 'app-contact-form',
@@ -10,17 +12,19 @@ import { Contact } from '../../contact';
 export class ContactFormComponent implements OnInit {
 
   roles = ['Internal User', 'Admin', 'Customer'];
-  model = new Contact('Mohammed', '', 'Internal User');
+  genders = ['male', 'female'];
+  model = new Contact('John', 'Doe', 'Internal User', new Address());
 
   submitted: boolean = false;
 
-  constructor() { }
+  constructor(private contactService: ContactService) { }
 
   ngOnInit() {
   }
 
   onSubmit() {
-    this.submitted = true;
+    this.contactService.addContact(this.model)
+     .subscribe(() => this.submitted = true);
   }
 
   get diagnostic() {
@@ -28,7 +32,6 @@ export class ContactFormComponent implements OnInit {
   }
 
   newContact() {
-    this.model = new Contact('', '', '');
+    this.model = new Contact('', '', '', new Address());
   }
-
 }
