@@ -12,7 +12,7 @@ const httpOptions = {
 
 @Injectable()
 export class ContactService {
-  private contactsUrl = 'https://mini-crm-api.herokuapp.com/api/v1/contacts';  // URL to web api
+  private contactsUrl = 'api/contacts';  // URL to web api
 
   constructor(
     private http: HttpClient) { }

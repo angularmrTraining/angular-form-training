@@ -1,15 +1,17 @@
 import { Adress } from './adress';
 
 export class Contact {
-  public adress: Adress;
+  public id: number;
+  public firstName: string;
+  public lastName: string;
   public jobPosition: string;
   public company: string;
   public phoneNumber: number;
   public fax: string;
   public email: string;
-  public firstName: string;
-  public lastName: string;
   public role: string;
+  public adress: Adress;
+
   constructor(firstName: string, lastName: string, role: string, adress: Adress) {
     this.adress = new Adress();
     this.jobPosition = '';
