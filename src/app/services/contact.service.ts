@@ -23,12 +23,13 @@ export class ContactService {
       );
   }
 
-  AddContact (contact: Contact): Observable<any> {
-    return this.http.put(this.contactsUrl, contact, httpOptions).pipe(
-      tap(_ => this.log(` contact id=${contact.firstName}`)),
-      catchError(this.handleError<any>('updateHero'))
+  addContact (contact: Contact): Observable<any> {
+    return this.http.post(this.contactsUrl, contact, httpOptions).pipe(
+      tap(_ => this.log(` contact =${contact.firstName}`)),
+      catchError(this.handleError<any>('create contact'))
     );
   }
+
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
       // TODO: send the error to remote logging infrastructure
