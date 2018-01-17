@@ -41,7 +41,7 @@
                   <div class="col">
                       <label for="">Job Position </label>
                       <input type="text" class="form-control" id="jobPosition" required [(ngModel)]="model.jobPosition" name="jobPosition" #firstName="ngModel">
-                    </div>
+                  </div>
                     <div class="col">
                       <label for="">Company</label>
                       <input type="text" class="form-control" id="company" [(ngModel)]="model.company" name="company">
@@ -60,7 +60,10 @@
                   </div>
                   <div class="col ">
                       <label for="">Email</label>
-                      <input type="text" class="form-control" id="email" required [(ngModel)]="model.email" name="email" #lastName="ngModel"> 
+                      <input type="email" class="form-control" id="email" required email [(ngModel)]="model.email" name="email" #lastName="ngModel"> 
+                        <div [hidden]="email.valid || email.pristine" class="alet alert-damger">
+                            email format is not correct 
+                        </div>
                   </div>
               </div> 
             </div>
